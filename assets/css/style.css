@@ -1,0 +1,357 @@
+* {
+    padding: 0;
+    margin: 0;
+    gap: 0;
+}
+
+h1 {
+    gap: 0;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.grid-container{
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Seteando el card */ 
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Para que las cards se distribuyan bien */
+    gap: 20PX;       /* Espacio entre cards */
+    justify-content: center;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 250px;
+    max-width: 250px;
+}
+
+.card-body { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-img-top {
+    max-height: 200px;
+    width: auto;
+}
+
+
+
+/* Seteando la vista mobile */
+
+@media screen and (max-width: 576px) {
+
+.cards-container .card:not(:first-child) {
+        display: none;
+    }
+
+
+/* Ajustando el grid container del mobile */
+    
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "filtro"
+        "main"
+        "footer";
+    grid-template-rows: 1fr 1.5fr 6fr 1fr;
+    max-height: 100vh;
+}
+
+.menu-navegacion {
+    grid-area: header;
+    background-color: #00579c;
+}
+
+aside {
+    grid-area: filtro;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #e2e2e2;
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    color: white;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #012f6b;
+}
+    
+/* AJUSTANDO EL MENÚ DE NAVEGACIÓN */
+
+.menu-navegacion {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 10px; /* Margen interno opcional */
+}
+
+.logo-titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 150px ;
+}
+
+.img-logo {
+    max-width: 40px; /* Ajusta el tamaño del logo (no el contenedor completo) */
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(1);
+}
+
+h1 {
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+.img-menu-hamburguesa {
+    max-width: 50px; /* Ajusta el tamaño del logo (no el contenedor completo) */
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(1);
+}
+
+.menu-lateral {
+    display: none;
+}
+
+/* AJUSTANDO LA SECCIÓN DE FILTRO (ASIDE) */
+
+
+#ordenar {
+    min-width: 200px;
+    border: none;
+    border-radius: 0.15rem;
+    font-size: small;
+    min-height: 30px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+/* AJUSTANDO LA SECCIÓN FOOTER */
+
+.logos-footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.logos-footer img {
+    min-width: 30px; /* Ajusta el tamaño del logo (no el contenedor completo) */
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(1);
+}
+
+footer h5 {
+    font-size: medium;
+    font-weight: lighter;
+    color: white;
+}
+
+}
+
+/* Seteando la vista desktop */
+
+@media screen and (min-width: 576px) {
+
+/* Ajustando el grid container del desktop */
+    
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header filtro"
+        "header main"
+        "footer main";
+    grid-template-columns: 1fr 4fr; 
+    grid-template-rows: 1fr 6fr 1fr;     
+    max-height: 100vh;
+}
+
+.menu-navegacion {
+    grid-area: header;
+    background-color: #00579c;
+}
+
+aside {
+    grid-area: filtro;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #e2e2e2;
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Para hacer scroll si hay muchas cards */
+    padding: 1rem;
+    gap: 10px;
+    max-width: 100%;  /* Evita que las cards crezcan más allá */
+    max-height: 100%; /* Respetar el alto disponible */
+}
+
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #012f6b;
+}
+    
+/* AJUSTANDO EL MENÚ DE NAVEGACIÓN */
+
+.menu-navegacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: start; 
+    padding: 20px 10px; /* Margen interno opcional */
+}
+
+
+.logo-titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 150px ;
+    padding-bottom: 20px;
+}
+
+.img-logo {
+    max-width: 40px; /* Ajusta el tamaño del logo (no el contenedor completo) */
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(1);
+}
+
+h1 {
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+.img-menu-hamburguesa {
+    display: none;
+}
+
+.menu-lateral {
+    color: white;          
+    padding: 0;            
+    margin: 0;             
+    font-family: Poppins, Arial, sans-serif; 
+    font-size: 1rem;
+    text-align: center;       
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;     /* Quita las viñetas */
+}
+
+.menu-lateral li {
+    margin: 10px 0;       /* Espacio entre opciones */
+}
+
+
+/* AJUSTANDO LA SECCIÓN DE FILTRO (ASIDE) */
+
+
+#ordenar {
+    min-width: 350px;
+    max-width: 450px;
+    width: auto;
+    border: none;
+    border-radius: 0.15rem;
+    font-size: small;
+    min-height: 30px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    font-family: Poppins, Arial, sans-serif;
+}
+
+/* AJUSTANDO LA SECCIÓN FOOTER */
+
+.logos-footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.logos-footer img {
+    min-width: 30px; /* Ajusta el tamaño del logo (no el contenedor completo) */
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(1);
+}
+
+footer h5 {
+    font-size: medium;
+    font-weight: lighter;
+    color: white;
+}
+
+/* AJUSTANDO LAS CARDS DEL MAIN */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 260px;
+    max-height: 260px;
+}
+
+.card-body { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-img-top {
+    max-height: 150px;
+    object-fit: cover;
+    width: auto;
+}
+
+
+}
